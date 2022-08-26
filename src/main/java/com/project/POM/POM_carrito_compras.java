@@ -36,11 +36,8 @@ public class POM_carrito_compras extends Base {
 	Properties prop = new Properties();
 		
 	By tituloCarrito	 	 = By.xpath("//span[@class='title']");			 
-	
 	By primerProducto        = By.xpath("//button[@id='add-to-cart-sauce-labs-onesie']");	
-	
 	By botonCheckout		 = By.xpath("//button[@id='checkout']");
-	
 	By textoPrecio			 = By.xpath("//div[@class='inventory_item_price']");
 	/*
 	 * Constructor que invoca el driver del navegador a utilizar
@@ -58,8 +55,7 @@ public class POM_carrito_compras extends Base {
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(tituloCarrito));
 		String expectedTittle = "YOUR CART";
 		boolean valor= expectedTittle.equals(getText(tituloCarrito));
-		//Assert.assertTrue(valor, "TÍTULO NO ESPERADO");
-		Assert.assertEquals(getText(tituloCarrito), expectedTittle);
+		Assert.assertTrue(valor, "TÍTULO NO ESPERADO");
 
 	}
 	
