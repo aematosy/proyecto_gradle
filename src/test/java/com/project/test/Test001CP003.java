@@ -95,7 +95,6 @@ public class Test001CP003 {
 			String codigozip = reader.getCellData("CP002", "CODIGO_ZIP", rowNum);
 
 			driver.manage().deleteAllCookies();
-	
 			pom_login.visit(url.trim());
 
 			try {
@@ -119,9 +118,8 @@ public class Test001CP003 {
 				reader.setCellData("CP002", "ERROR", rowNum, "");
 				
 			}catch(Exception e){
-				
 				reader.setCellData("CP002", "ERROR", rowNum, e.toString());
-				reader.setCellData("CP002", "ESTADO", rowNum, "PASSED");
+				reader.setCellData("CP002", "ESTADO", rowNum, "FAILED");
 			}
 			driver.quit();
 		}
