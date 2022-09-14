@@ -54,11 +54,7 @@ public class POM_login extends Base {
 
 	
 			prop.load(new FileReader(rutaProperties()));
-			
-			logger.info("****************************************************************************************");
-			logger.info("**********************************  "+"INICIO - TESTCASE"+"  *********************************");
-			logger.info("****************************************************************************************");
-			
+					
 			WebDriverWait wait = esperarElemento();				
 			wait.until(ExpectedConditions.elementToBeClickable(inputUsername));
 			type(usuario, inputUsername);

@@ -26,9 +26,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Test001CP4 {
+public class Test001CP003 {
 
-	final static Logger logger = LogManager.getLogger(Test001CP4.class.getName());
+	final static Logger logger = LogManager.getLogger(Test001CP003.class.getName());
 	
 	private WebDriver driver;
 	POM_productos pom_productos;
@@ -46,25 +46,13 @@ public class Test001CP4 {
 	 */
 	@BeforeMethod
 	public void setUp() throws Exception {	
+		
+		logger.info("****************************************************************************************");
+		logger.info("**********************************  "+"INICIO - TESTCASE"+"  *********************************");
+		logger.info("****************************************************************************************");
 
 		pom_login = new POM_login(driver);
-		//pom_productos = new POM_productos(driver);
-		//prop.load(new FileReader(pom_productos.rutaProperties()));
-		
-		/*if(prop.getProperty("CP002_NAV").equals("0")) {
-			driver = pom_login.chromeDriverConnection();
-		} else if(prop.getProperty("CP002_NAV").equals("1")) {
-			driver = pom_login.firefoxDriverConnection();
-		} else if(prop.getProperty("CP002_NAV").equals("2")) {
-			driver = pom_login.edgeDriverConnection();
-		} else if(prop.getProperty("CP002_NAV").equals("3")) {
-			driver = pom_login.iExplorerDriverConnection();
-		} else if(prop.getProperty("CP002_NAV").equals("4")) {
-			driver = pom_login.operaDriverConnection();
-		}*/
 		ruta = new RutasGenerales();
-		
-	
 	}
 
 	/*
@@ -105,13 +93,11 @@ public class Test001CP4 {
 			String nombre = reader.getCellData("CP002", "NOMBRE", rowNum);
 			String apellido = reader.getCellData("CP002", "APELLIDOS", rowNum);
 			String codigozip = reader.getCellData("CP002", "CODIGO_ZIP", rowNum);
-			
-			
-			//pom_login.recargar();
-			//driver.manage().deleteAllCookies();
-			//pom_login.visit(prop.getProperty("URL").trim());			
+
+			driver.manage().deleteAllCookies();
+	
 			pom_login.visit(url.trim());
-			//cargarDevice(device);
+
 			try {
 
 				pom_login.login(usuario,password);
@@ -130,13 +116,14 @@ public class Test001CP4 {
 		        pom_checkout_two.finalizarCompra();
 		        
 				reader.setCellData("CP002", "ESTADO", rowNum, "PASSED");
+				reader.setCellData("CP002", "ERROR", rowNum, "");
 				
 			}catch(Exception e){
 				
 				reader.setCellData("CP002", "ERROR", rowNum, e.toString());
 				reader.setCellData("CP002", "ESTADO", rowNum, "PASSED");
 			}
-			
+			driver.quit();
 		}
 	}
 
