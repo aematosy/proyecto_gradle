@@ -82,7 +82,6 @@ public class Test001CP002 {
 		
 		for(int rowNum = 2; rowNum <=reader.getRowCount("CP002"); rowNum++){
 			
-			//String device 	= reader.getCellData("CP002", "DEVICE", rowNum);
 			String url 	= reader.getCellData("CP002", "URL", rowNum);
 			String usuario 	= reader.getCellData("CP002", "USUARIO", rowNum);
 			String password = reader.getCellData("CP002", "PASSWORD", rowNum);
@@ -91,9 +90,8 @@ public class Test001CP002 {
 			String codigozip = reader.getCellData("CP002", "CODIGO_ZIP", rowNum);
 			pom_login.recargar();
 			driver.manage().deleteAllCookies();
-			//pom_login.visit(prop.getProperty("URL").trim());
 			pom_login.visit(url.trim());
-			//cargarDevice(device);
+			
 			try {
 				
 				//pom_login.visit(url.trim());
@@ -131,7 +129,7 @@ public class Test001CP002 {
 		logger.info("****************************************************************************************");
 		logger.info("************************************  "+"FIN - TESTCASE"+"  **********************************");
 		logger.info("****************************************************************************************");
-	//driver.quit();
+	driver.quit();
 	}
 	
 }
