@@ -121,7 +121,7 @@ public class Test001CP003 {
 			}catch(Exception e){
 				
 				reader.setCellData("CP002", "ERROR", rowNum, e.toString());
-				reader.setCellData("CP002", "ESTADO", rowNum, "PASSED");
+				reader.setCellData("CP002", "ESTADO", rowNum, "FAILED");
 			}
 			driver.quit();
 		}
