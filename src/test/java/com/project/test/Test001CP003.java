@@ -95,7 +95,6 @@ public class Test001CP003 {
 			String codigozip = reader.getCellData("CP002", "CODIGO_ZIP", rowNum);
 
 			driver.manage().deleteAllCookies();
-	
 			pom_login.visit(url.trim());
 
 			try {
