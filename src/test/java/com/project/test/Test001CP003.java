@@ -119,7 +119,6 @@ public class Test001CP003 {
 				reader.setCellData("CP002", "ERROR", rowNum, "");
 				
 			}catch(Exception e){
-				
 				reader.setCellData("CP002", "ERROR", rowNum, e.toString());
 				reader.setCellData("CP002", "ESTADO", rowNum, "FAILED");
 			}
